@@ -73,7 +73,7 @@ public class DevController {
 		
 		devService.insertNote(note);
 		
-		return "redirect:dev/note_list";
+		return "redirect:note_list";
 	}
 	
 	@RequestMapping("update_proc")

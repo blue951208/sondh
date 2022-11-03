@@ -7,7 +7,7 @@
 <title>개발노트 등록화면</title>
 </head>
 <body>
-	<form action="/${param.cmd}_proc" type="post">
+	<form action="./${param.cmd}_proc" type="post">
 		<input type="hidden" name="no" value="${note.no}"/>
 		<table>
 			<tr>
