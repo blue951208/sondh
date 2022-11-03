@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.model.dao.DevMapper">
+
+	<select id="getAllNoteList" resultType="com.example.demo.model.dto.Note">
+    	SELECT * 
+    	  FROM dev_note
+    	 where delyn = '0'
+    	 order by 1 desc
+  	</select>
+
+	<select id="getNote" resultType="com.example.demo.model.dto.Note">
+    	SELECT * 
+    	  FROM dev_note
+    	 where no = #{no}
+  	</select>
+
+	<insert id="insertNote" parameterType="com.example.demo.model.dto.Note">
+		insert into dev_note 
+		    set title      = #{title}
+		      , content    = #{content}
+		      , insertdate = now()
+	</insert>
+
+	<update id="updateNote" parameterType="com.example.demo.model.dto.Note">
+		update dev_note
+		   set title 	  = #{title}
+		     , content 	  = #{content}
+		     , updatedate = now()
+		 where no = #{no}    
+	</update>
+
+	<update id="deleteNote" parameterType="com.example.demo.model.dto.Note">
+		update dev_note
+		   set delyn = '1'
+		 where no = #{no}  	
+	</update>
+
+</mapper>
